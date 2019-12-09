@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.4'
 
 services:
    db:
@@ -18,15 +18,13 @@ services:
        - db
      image: songgolmae/yourapp
      #volumes: ['~/app/:/app']
+     environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
      ports:
-       - "5000:80"
-       - "5001:443"
+      - "80"
+      - "443"
      restart: always
-     #environment:
-     #  YOURAPP_DB_HOST: db:3306
-     #  YOURAPP_DB_USER: yourapp
-     #  YOURAPP_DB_PASSWORD: yourapp
-     #  YOURAPP_DB_NAME: yourapp
 volumes:
     db_data: {}
     #wordpress: {}
