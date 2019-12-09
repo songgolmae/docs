@@ -10,9 +10,9 @@ services:
        - "3306:3306"     
      environment:
        MYSQL_ROOT_PASSWORD: root!
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+       MYSQL_DATABASE: yourapp
+       MYSQL_USER: yourapp
+       MYSQL_PASSWORD: yourapp
    yourapp:
      depends_on:
        - db
