@@ -1,10 +1,10 @@
-version: '3.4'
+version: '3'
 
 services:
    db:
      image: mariadb
      volumes:
-       - db_data:/var/lib/mysql   
+       - mysql_data:/var/lib/mysql   
      restart: always
      ports:
        - "3306:3306"     
@@ -19,12 +19,12 @@ services:
      image: songgolmae/yourapp
      #volumes: ['~/app/:/app']
      environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://+:443;http://+:80
      ports:
       - "80"
       - "443"
      restart: always
 volumes:
-    db_data: {}
-    #wordpress: {}
+    mysql_data: {}
+    
