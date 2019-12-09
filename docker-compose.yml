@@ -13,19 +13,20 @@ services:
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
-   wordpress:
+   yourapp:
      depends_on:
        - db
-     image: wordpress:latest
-     volumes: ['~/wordpress/:/var/www/html']
+     image: songgolmae/yourapp
+     #volumes: ['~/app/:/app']
      ports:
-       - "8000:80"
+       - "5000:80"
+       - "5001:443"
      restart: always
-     environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
-       WORDPRESS_DB_NAME: wordpress
+     #environment:
+     #  YOURAPP_DB_HOST: db:3306
+     #  YOURAPP_DB_USER: yourapp
+     #  YOURAPP_DB_PASSWORD: yourapp
+     #  YOURAPP_DB_NAME: yourapp
 volumes:
     db_data: {}
-    wordpress: {}
+    #wordpress: {}
