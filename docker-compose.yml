@@ -20,7 +20,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/     
+      - nginx_data:/etc/nginx
   yourapp:
     image: songgolmae/yourapp
     container_name: yourapp
@@ -39,4 +39,6 @@ volumes:
     driver: local
   app_data: 
     driver: local
+  nginx_data: 
+    driver: local    
     
