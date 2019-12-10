@@ -2,7 +2,7 @@ version: '2'
 
 services:
    db:
-     image: mariadb        
+     image: mariadb:10.4.10     
      environment:
        MYSQL_ROOT_PASSWORD: root!
        MYSQL_DATABASE: yourapp
