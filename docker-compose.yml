@@ -2,7 +2,8 @@ version: '2'
 
 services:
    db:
-     image: mariadb:10.4.10     
+     image: mariadb:10.4.10    
+     container_name: dbsvr
      environment:
        MYSQL_ROOT_PASSWORD: root!
        MYSQL_DATABASE: yourapp
@@ -11,10 +12,18 @@ services:
      ports:
        - "3306:3306"          
      volumes:
-       - mysql_data:/var/lib/mysql
-     restart: always       
+       - mysql_data:/var/lib/mysql     
+  web:
+      image: nginx:alpine
+      container_name: websvr
+      ports:
+       - "80:80"
+       - "443:443"
+      volumes:
+       - ./nginx/conf.d/:/etc/nginx/conf.d/     
    yourapp:
      image: songgolmae/yourapp
+     container_name: yourapp
      environment:
       - ASPNETCORE_ENVIRONMENT=Development
       #- ASPNETCORE_URLS=https://+:443;http://+:80
@@ -27,6 +36,8 @@ services:
        - db      
      restart: always
 volumes:
-    mysql_data: {}
-    app_data: {}
+    mysql_data:
+      driver: local
+    app_data: 
+      driver: local
     
