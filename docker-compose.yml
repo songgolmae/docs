@@ -34,7 +34,6 @@ services:
       - app_data:/app      
      depends_on:
        - db      
-     restart: always
 volumes:
     mysql_data:
       driver: local
