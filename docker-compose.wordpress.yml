@@ -3,7 +3,6 @@ version: '2'
 services:
   db:
     image: mariadb:10.4.10    
-    container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root!
       MYSQL_DATABASE: wordpress
@@ -17,9 +16,8 @@ services:
     depends_on:
       - db
     image: wordpress:latest
-    container_name: wordpress
     volumes: 
-      - app_data:/var/www/html
+      - ./wordpress:/var/www/html
     ports:
       - "80:80"
       - "443:443"
@@ -33,7 +31,5 @@ services:
       - db
 volumes:
   mysql_data:
-    driver: local
-  app_data: 
     driver: local
     
