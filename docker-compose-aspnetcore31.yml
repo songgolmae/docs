@@ -1,18 +1,6 @@
 version: '2'
 
 services:
-  db:
-    image: mariadb:10.4.10    
-    container_name: dbsvr
-    environment:
-      MYSQL_ROOT_PASSWORD: root!
-      MYSQL_DATABASE: yourapp
-      MYSQL_USER: yourapp
-      MYSQL_PASSWORD: yourapp!
-    ports:
-      - "3306:3306"          
-    volumes:
-      - mysql_data:/var/lib/mysql     
   web:
     image: songgolmae/my-blazor-first-sample
     container_name: my-blazor-first-sample
@@ -27,7 +15,5 @@ services:
     depends_on:
       - db
 volumes:
-  mysql_data:
-    driver: local
   app_data: 
     driver: local
