@@ -2,8 +2,8 @@ version: '2'
 
 services:
   web:
-    image: songgolmae/my-blazor-first-sample
-    container_name: my-blazor-first-sample
+    image: songgolmae/myblazorfirstsample
+    container_name: myblazorfirstsample
     environment:
     - ASPNETCORE_ENVIRONMENT=Development
     #- ASPNETCORE_URLS=https://+:443;http://+:80
