@@ -14,31 +14,21 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql     
   web:
-    image: nginx:alpine
-    container_name: websvr
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - nginx_data:/etc/nginx
-  yourapp:
     image: songgolmae/yourapp
     container_name: yourapp
     environment:
     - ASPNETCORE_ENVIRONMENT=Development
     #- ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-    - "5000:80"
-    #- "5001:443"
+    - "80:80"
+    #- "443:443"
     volumes: 
-    - app_data:/app      
+    - app_data:/yourapp      
     depends_on:
       - db
 volumes:
   mysql_data:
     driver: local
   app_data: 
-    driver: local
-  nginx_data: 
-    driver: local    
+    driver: local 
     
